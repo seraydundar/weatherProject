@@ -141,7 +141,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 40px;
+    gap: 60px;
     padding: 20px;
   }
   
@@ -176,4 +176,59 @@ body {
     background-color: #4a90e2;
     height: 100%;
   }
-  
+  /* ekle dosyanın sonuna */
+.city-panel.overview {
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+.city-panel.overview .weather-card {
+  margin: 20px 0;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+/* ——— OVERVIEW KART INVISIBLE WRAPPER ——— */
+.city-panel.overview {
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* sadece gerçek kart */
+.city-panel.overview .weather-card {
+  margin: 20px 0;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+/* WRAPPER H2 tamamen gizle (detail modda da) */
+.city-panel > h2 {
+  display: none;
+}
+
+/* DETAIL MODDA daha geniş kart */
+.city-panel {
+  max-width: 800px !important;
+  margin: 20px auto;
+}
+
+/* BUTONLAR TEK SATIRDA, taşmaya izin ver */
+.city-panel .day-buttons-container {
+  flex-wrap: nowrap !important;
+  overflow-x: auto;
+}
+
+/* GRAFİK alanını tam genişlik */
+.city-panel .chart-container {
+  max-width: none !important;
+  width: 100%;
+}
+
+/* ANASAYFA CONTAINER padding azalt */
+.homepage-container {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* KARTLAR ARASI GAP (overview + detail) */
+.dashboard-grid {
+  gap: 60px !important;
+}

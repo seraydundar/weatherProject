@@ -1,59 +1,142 @@
 // src/pages/HomePage.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CityWeatherPanel from '../components/CityWeatherPanel';
 import ComparisonChart from '../components/ComparisonChart';
+import { fetchWeatherData } from '../services/api';
 
 export default function HomePage() {
-  const [selectedDate, setSelectedDate] = useState('2025-04-21'); // varsayılan örnek tarih
-  const [availableDates, setAvailableDates] = useState([]); // tüm şehirlerden gelen tarihlerle doldurulacak
+  const today = new Date().toISOString().slice(0,10);
+
+  // Detay modu için
+  const [detailCity, setDetailCity] = useState(null);
+  const [detailDate, setDetailDate] = useState(today);
+  const [detailDates, setDetailDates] = useState([]);
+
+  // Ana sayfa tarih seçimi
+  const [selectedDate, setSelectedDate] = useState(today);
+  const [availableDates, setAvailableDates] = useState([]);
+
+  // İstanbul’dan tarihler al ve dropdown’a doldur
+  useEffect(() => {
+    fetchWeatherData("Istanbul").then(data => {
+      const dates = Array.from(new Set(data.map(i => i.date_time.slice(0,10)))).sort();
+      setAvailableDates(dates);
+      if (!dates.includes(selectedDate)) {
+        setSelectedDate(dates[0] || today);
+      }
+    });
+  }, []);
+
+  const cities = ["Istanbul","Ankara","Izmir"];
 
   return (
     <div className="homepage-container">
-      <div className="dashboard-grid">
-        <CityWeatherPanel
-          city="Istanbul"
-          selectedDate={selectedDate}
-          setSelectedDate={setSelectedDate}
-          availableDates={availableDates}
-          setAvailableDates={setAvailableDates}
-        />
-        <CityWeatherPanel
-          city="Ankara"
-          selectedDate={selectedDate}
-          setSelectedDate={setSelectedDate}
-          availableDates={availableDates}
-          setAvailableDates={setAvailableDates}
-        />
-        <CityWeatherPanel
-          city="Izmir"
-          selectedDate={selectedDate}
-          setSelectedDate={setSelectedDate}
-          availableDates={availableDates}
-          setAvailableDates={setAvailableDates}
-        />
-      </div>
+      {detailCity === null ? (
+        <>
+          {/* Genel üç kart */}
+          <div className="dashboard-grid">
+            {cities.map(c => (
+              <CityWeatherPanel
+                key={c}
+                city={c}
+                selectedDate={selectedDate}
+                showChart={false}
+                showDateButtons={false}
+                onCardClick={city => {
+                  setDetailCity(city);
+                  setDetailDate(selectedDate);
+                  setDetailDates([]);
+                }}
+              />
+            ))}
+          </div>
 
-      {/* 📊 Alt kısım: karşılaştırmalı grafik + gün seçimi */}
-      <div style={{ textAlign: 'center', marginTop: '40px' }}>
-        <label htmlFor="date-select"><strong>Karşılaştırmak için gün seçin:</strong></label>
-        <select
-          id="date-select"
-          value={selectedDate}
-          onChange={(e) => setSelectedDate(e.target.value)}
-          style={{ padding: '8px', marginLeft: '10px', borderRadius: '8px' }}
-        >
-          {availableDates.map(date => {
-            const day = new Date(date).toLocaleDateString('tr-TR', { weekday: 'long' });
-            return (
-              <option key={date} value={date}>
-                {date} - {day.charAt(0).toUpperCase() + day.slice(1)}
-              </option>
-            );
-          })}
-        </select>
-      </div>
+          {/* Gün seçme butonları */}
+          <div style={{
+            display:'flex',
+            flexWrap:'wrap',
+            gap:'8px',
+            justifyContent:'center',
+            margin:'20px 0'
+          }}>
+            {availableDates.map(date => {
+              const day = new Date(date).toLocaleDateString('tr-TR',{weekday:'long'});
+              const label = `${day.charAt(0).toUpperCase()+day.slice(1)} (${date})`;
+              const sel = date === selectedDate;
+              return (
+                <button
+                  key={date}
+                  type="button"
+                  onClick={() => setSelectedDate(date)}
+                  style={{
+                    padding:'8px 12px',
+                    borderRadius:'8px',
+                    border: sel ? '2px solid #0077ff' : '2px solid #ccc',
+                    background: sel ? '#0077ff' : '#fff',
+                    color: sel ? '#fff' : '#333',
+                    cursor:'pointer'
+                  }}
+                >
+                  {label}
+                </button>
+              );
+            })}
+          </div>
 
-      <ComparisonChart selectedDate={selectedDate} />
+          {/* En yüksek ve en düşük kutuları */}
+          <div style={{
+            display:'flex',
+            flexWrap:'wrap',
+            gap:'20px',
+            justifyContent:'flex-start',
+            alignItems:'flex-start'
+          }}>
+            <ComparisonChart
+              selectedDate={selectedDate}
+              mode="max"
+              title={`Günlük En Yüksek Sıcaklık – ${selectedDate}`}
+            />
+            <ComparisonChart
+              selectedDate={selectedDate}
+              mode="min"
+              title={`Günlük En Düşük Sıcaklık – ${selectedDate}`}
+            />
+          </div>
+        </>
+      ) : (
+        <div style={{ textAlign:'center' }}>
+          {/* Detay modu geri butonu */}
+          <button
+            type="button"
+            onClick={e => {
+              e.stopPropagation();
+              setDetailCity(null);
+            }}
+            style={{
+              margin:'20px',
+              padding:'10px 20px',
+              borderRadius:'8px',
+              border:'none',
+              background:'#0077ff',
+              color:'#fff',
+              cursor:'pointer'
+            }}
+          >
+            ← Geri
+          </button>
+
+          {/* Detay sayfası */}
+          <CityWeatherPanel
+            city={detailCity}
+            selectedDate={detailDate}
+            setSelectedDate={setDetailDate}
+            availableDates={detailDates}
+            setAvailableDates={setDetailDates}
+            showChart={true}
+            showDateButtons={true}
+          />
+        </div>
+      )}
     </div>
   );
 }

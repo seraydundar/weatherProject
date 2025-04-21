@@ -1,3 +1,4 @@
+// src/components/WeatherCard.jsx
 import React from 'react';
 import {
   FaTemperatureHigh,
@@ -6,7 +7,9 @@ import {
   FaWind,
   FaCloudSun,
   FaThermometerHalf,
-  FaRegClock
+  FaRegClock,
+  FaSun,
+  FaCloud
 } from 'react-icons/fa';
 import './WeatherStyles.css';
 
@@ -18,7 +21,9 @@ export default function WeatherCard({ data, maxTemp, minTemp, avgTemp, nowTemp }
   return (
     <div className="weather-card">
       <h2 className="weather-title">{data.city}</h2>
-      <p className="weather-info"><FaCloudSun /> <strong>Tarih:</strong> {data.date_time.slice(0, 10)}</p>
+      <p className="weather-info">
+        <FaCloudSun /> <strong>Tarih:</strong> {data.date_time.slice(0, 10)}
+      </p>
 
       <div className="bar-row">
         <span><FaRegClock /> Anlık</span>
@@ -56,7 +61,20 @@ export default function WeatherCard({ data, maxTemp, minTemp, avgTemp, nowTemp }
         <span>{data.wind_speed} km/h</span>
       </div>
 
-      <p className="weather-info"><strong>Durum:</strong> {data.weather_condition}</p>
+      <p className="weather-info">
+        <strong>Durum:</strong>{' '}
+        {data.weather_condition === 'Açık' ? (
+          <>
+            <FaSun style={{ margin: '0 6px' }} />
+            {data.weather_condition}
+          </>
+        ) : (
+          <>
+            <FaCloud style={{ margin: '0 6px' }} />
+            {data.weather_condition}
+          </>
+        )}
+      </p>
     </div>
   );
 }
