@@ -1,0 +1,304 @@
+city,date_time,temperature,humidity,wind_speed,weather_condition
+Istanbul,2025-04-21 19:00:00,17.7,54,16.2,Güneşli
+Istanbul,2025-04-21 20:00:00,16.1,57,14.4,Açık
+Istanbul,2025-04-21 21:00:00,15.4,57,13.3,Açık
+Istanbul,2025-04-21 22:00:00,14.9,57,12.6,Açık
+Istanbul,2025-04-21 23:00:00,14.3,58,11.9,Açık
+Istanbul,2025-04-22 00:00:00,14.0,59,11.9,Parçalı Bulutlu
+Istanbul,2025-04-22 01:00:00,13.6,58,10.8,Parçalı Bulutlu
+Istanbul,2025-04-22 02:00:00,13.2,59,9.7,Parçalı Bulutlu
+Istanbul,2025-04-22 03:00:00,12.9,59,10.1,Parçalı Bulutlu
+Istanbul,2025-04-22 04:00:00,12.6,59,10.4,Parçalı Bulutlu
+Istanbul,2025-04-22 05:00:00,12.5,60,10.4,Bulutlu
+Istanbul,2025-04-22 06:00:00,12.6,60,10.4,Parçalı Bulutlu
+Istanbul,2025-04-22 07:00:00,14.0,57,11.9,Parçalı Bulutlu
+Istanbul,2025-04-22 08:00:00,15.7,51,13.0,Parçalı Bulutlu
+Istanbul,2025-04-22 09:00:00,17.2,46,14.8,Güneşli
+Istanbul,2025-04-22 10:00:00,18.5,42,15.8,Güneşli
+Istanbul,2025-04-22 11:00:00,19.4,40,15.1,Güneşli
+Istanbul,2025-04-22 12:00:00,20.1,39,14.4,Güneşli
+Istanbul,2025-04-22 13:00:00,20.5,38,14.8,Parçalı Bulutlu
+Istanbul,2025-04-22 14:00:00,20.9,37,15.8,Parçalı Bulutlu
+Istanbul,2025-04-22 15:00:00,20.9,37,20.9,Parçalı Bulutlu
+Istanbul,2025-04-22 16:00:00,19.7,41,22.7,Güneşli
+Istanbul,2025-04-22 17:00:00,18.3,47,20.9,Parçalı Bulutlu
+Istanbul,2025-04-22 18:00:00,16.9,55,20.2,Güneşli
+Istanbul,2025-04-22 19:00:00,15.4,63,20.5,Güneşli
+Istanbul,2025-04-22 20:00:00,14.6,66,16.2,Açık
+Istanbul,2025-04-22 21:00:00,14.3,68,16.2,Açık
+Istanbul,2025-04-22 22:00:00,13.6,71,15.8,Açık
+Istanbul,2025-04-22 23:00:00,13.2,76,15.5,Açık
+Istanbul,2025-04-23 00:00:00,12.7,79,15.1,Açık
+Istanbul,2025-04-23 01:00:00,12.1,80,15.8,Açık
+Istanbul,2025-04-23 02:00:00,12.1,81,13.7,Açık
+Istanbul,2025-04-23 03:00:00,11.8,82,12.2,Açık
+Istanbul,2025-04-23 04:00:00,11.5,84,11.9,Açık
+Istanbul,2025-04-23 05:00:00,11.3,85,12.2,Açık
+Istanbul,2025-04-23 06:00:00,11.7,83,12.2,Açık
+Istanbul,2025-04-23 07:00:00,12.7,78,13.7,Güneşli
+Istanbul,2025-04-23 08:00:00,14.3,70,14.4,Güneşli
+Istanbul,2025-04-23 09:00:00,15.8,62,15.5,Güneşli
+Istanbul,2025-04-23 10:00:00,17.1,56,17.3,Güneşli
+Istanbul,2025-04-23 11:00:00,18.2,51,17.3,Güneşli
+Istanbul,2025-04-23 12:00:00,19.0,48,18.0,Güneşli
+Istanbul,2025-04-23 13:00:00,19.2,47,19.8,Güneşli
+Istanbul,2025-04-23 14:00:00,19.1,47,21.2,Güneşli
+Istanbul,2025-04-23 15:00:00,18.6,49,21.6,Güneşli
+Istanbul,2025-04-23 16:00:00,17.9,51,20.9,Güneşli
+Istanbul,2025-04-23 17:00:00,17.1,54,20.2,Güneşli
+Istanbul,2025-04-23 18:00:00,15.8,59,19.1,Güneşli
+Istanbul,2025-04-23 19:00:00,14.1,66,17.3,Güneşli
+Istanbul,2025-04-23 20:00:00,13.2,70,15.5,Açık
+Istanbul,2025-04-23 21:00:00,13.0,71,13.3,Açık
+Istanbul,2025-04-23 22:00:00,12.7,73,13.0,Açık
+Istanbul,2025-04-23 23:00:00,12.3,75,12.6,Açık
+Istanbul,2025-04-24 00:00:00,12.0,77,11.5,Açık
+Istanbul,2025-04-24 01:00:00,11.6,78,10.1,Açık
+Istanbul,2025-04-24 02:00:00,11.4,79,9.7,Açık
+Istanbul,2025-04-24 03:00:00,11.1,80,10.1,Açık
+Istanbul,2025-04-24 04:00:00,10.9,80,9.7,Açık
+Istanbul,2025-04-24 05:00:00,10.7,80,10.4,Açık
+Istanbul,2025-04-24 06:00:00,11.1,79,10.4,Açık
+Istanbul,2025-04-24 07:00:00,12.7,73,11.5,Güneşli
+Istanbul,2025-04-24 08:00:00,14.2,65,13.7,Güneşli
+Istanbul,2025-04-24 09:00:00,15.9,57,14.8,Güneşli
+Istanbul,2025-04-24 10:00:00,17.2,52,14.4,Güneşli
+Istanbul,2025-04-24 11:00:00,18.2,49,15.8,Güneşli
+Istanbul,2025-04-24 12:00:00,18.6,47,17.6,Güneşli
+Istanbul,2025-04-24 13:00:00,18.6,48,19.4,Güneşli
+Istanbul,2025-04-24 14:00:00,18.2,50,20.2,Güneşli
+Istanbul,2025-04-24 15:00:00,17.8,52,20.9,Güneşli
+Istanbul,2025-04-24 16:00:00,17.1,55,20.5,Güneşli
+Istanbul,2025-04-24 17:00:00,16.2,59,19.1,Güneşli
+Istanbul,2025-04-24 18:00:00,15.3,65,17.6,Güneşli
+Istanbul,2025-04-24 19:00:00,14.3,71,15.8,Güneşli
+Istanbul,2025-04-24 20:00:00,13.7,74,13.0,Açık
+Istanbul,2025-04-24 21:00:00,13.3,76,10.4,Açık
+Istanbul,2025-04-24 22:00:00,13.1,78,9.0,Açık
+Istanbul,2025-04-24 23:00:00,12.8,79,9.0,Açık
+Istanbul,2025-04-25 00:00:00,12.4,80,6.5,Açık
+Istanbul,2025-04-25 01:00:00,12.2,82,5.4,Açık
+Istanbul,2025-04-25 02:00:00,12.0,82,5.0,Açık
+Istanbul,2025-04-25 03:00:00,11.8,83,4.3,Açık
+Istanbul,2025-04-25 04:00:00,11.6,84,5.0,Açık
+Istanbul,2025-04-25 05:00:00,11.4,85,4.7,Açık
+Istanbul,2025-04-25 06:00:00,11.8,84,3.2,Açık
+Istanbul,2025-04-25 07:00:00,12.7,79,3.2,Güneşli
+Istanbul,2025-04-25 08:00:00,14.0,73,4.3,Güneşli
+Istanbul,2025-04-25 09:00:00,14.9,68,8.3,Güneşli
+Istanbul,2025-04-25 10:00:00,15.7,65,9.4,Güneşli
+Istanbul,2025-04-25 11:00:00,16.3,63,10.1,Güneşli
+Istanbul,2025-04-25 12:00:00,16.7,62,10.1,Güneşli
+Istanbul,2025-04-25 13:00:00,17.3,60,8.6,Güneşli
+Istanbul,2025-04-25 14:00:00,17.7,59,6.5,Güneşli
+Istanbul,2025-04-25 15:00:00,17.7,58,4.7,Güneşli
+Istanbul,2025-04-25 16:00:00,17.4,58,2.9,Güneşli
+Istanbul,2025-04-25 17:00:00,17.4,58,0.7,Güneşli
+Istanbul,2025-04-25 18:00:00,16.9,60,1.4,Güneşli
+Istanbul,2025-04-25 19:00:00,16.1,63,2.5,Güneşli
+Istanbul,2025-04-25 20:00:00,15.6,65,2.2,Açık
+Istanbul,2025-04-25 21:00:00,15.4,66,2.2,Açık
+Istanbul,2025-04-25 22:00:00,15.2,67,2.2,Açık
+Istanbul,2025-04-25 23:00:00,14.9,67,1.8,Açık
+Ankara,2025-04-21 19:00:00,15.3,43,7.6,Güneşli
+Ankara,2025-04-21 20:00:00,14.1,46,5.8,Açık
+Ankara,2025-04-21 21:00:00,13.2,50,1.4,Açık
+Ankara,2025-04-21 22:00:00,12.9,50,3.6,Açık
+Ankara,2025-04-21 23:00:00,12.4,51,3.2,Açık
+Ankara,2025-04-22 00:00:00,12.2,52,3.2,Açık
+Ankara,2025-04-22 01:00:00,11.8,52,3.2,Parçalı Bulutlu
+Ankara,2025-04-22 02:00:00,11.7,53,3.2,Parçalı Bulutlu
+Ankara,2025-04-22 03:00:00,11.4,58,2.2,Parçalı Bulutlu
+Ankara,2025-04-22 04:00:00,11.5,59,3.2,Bölgesel düzensiz yağmur yağışlı
+Ankara,2025-04-22 05:00:00,11.5,60,4.0,Bölgesel düzensiz yağmur yağışlı
+Ankara,2025-04-22 06:00:00,13.1,60,2.5,Parçalı Bulutlu
+Ankara,2025-04-22 07:00:00,15.3,50,0.7,Parçalı Bulutlu
+Ankara,2025-04-22 08:00:00,16.5,45,0.4,Bölgesel düzensiz yağmur yağışlı
+Ankara,2025-04-22 09:00:00,17.4,44,0.7,Hafif çisenti
+Ankara,2025-04-22 10:00:00,18.0,43,1.8,Bulutlu
+Ankara,2025-04-22 11:00:00,19.3,39,2.9,Parçalı Bulutlu
+Ankara,2025-04-22 12:00:00,20.5,37,2.9,Bölgesel düzensiz gök gürültülü yağmurlu
+Ankara,2025-04-22 13:00:00,21.3,35,5.0,Bölgesel düzensiz gök gürültülü yağmurlu
+Ankara,2025-04-22 14:00:00,22.1,33,8.3,Bölgesel düzensiz gök gürültülü yağmurlu
+Ankara,2025-04-22 15:00:00,22.5,32,11.9,Güneşli
+Ankara,2025-04-22 16:00:00,22.3,31,18.7,Güneşli
+Ankara,2025-04-22 17:00:00,21.5,34,16.6,Güneşli
+Ankara,2025-04-22 18:00:00,18.5,42,7.9,Güneşli
+Ankara,2025-04-22 19:00:00,15.4,45,3.6,Güneşli
+Ankara,2025-04-22 20:00:00,14.6,46,5.8,Açık
+Ankara,2025-04-22 21:00:00,13.0,57,5.4,Parçalı Bulutlu
+Ankara,2025-04-22 22:00:00,12.6,62,7.6,Bölgesel düzensiz gök gürültülü yağmurlu
+Ankara,2025-04-22 23:00:00,12.4,62,9.7,Bölgesel düzensiz gök gürültülü yağmurlu
+Ankara,2025-04-23 00:00:00,11.7,66,6.5,Bölgesel düzensiz yağmur yağışlı
+Ankara,2025-04-23 01:00:00,11.9,66,6.1,Parçalı Bulutlu
+Ankara,2025-04-23 02:00:00,11.4,70,1.4,Bölgesel düzensiz yağmur yağışlı
+Ankara,2025-04-23 03:00:00,11.0,76,7.9,Hafif yağmurlu
+Ankara,2025-04-23 04:00:00,10.2,86,11.2,Ara ara orta kuvvetli yağmurlu
+Ankara,2025-04-23 05:00:00,9.8,93,6.8,Bölgesel gök gürültülü orta kuvvetli veya şiddetli yağış
+Ankara,2025-04-23 06:00:00,9.8,93,6.1,Bölgesel gök gürültülü orta kuvvetli veya şiddetli yağış
+Ankara,2025-04-23 07:00:00,10.0,91,2.2,Hafif sağnak yağışlı
+Ankara,2025-04-23 08:00:00,11.6,84,2.2,Bölgesel düzensiz yağmur yağışlı
+Ankara,2025-04-23 09:00:00,13.7,74,4.3,Bölgesel düzensiz gök gürültülü yağmurlu
+Ankara,2025-04-23 10:00:00,14.9,65,9.4,Bölgesel düzensiz gök gürültülü yağmurlu
+Ankara,2025-04-23 11:00:00,15.9,59,12.6,Bölgesel düzensiz gök gürültülü yağmurlu
+Ankara,2025-04-23 12:00:00,16.7,55,10.8,Bölgesel gök gürültülü düzensiz hafif yağmur
+Ankara,2025-04-23 13:00:00,17.5,52,11.2,Bölgesel düzensiz yağmur yağışlı
+Ankara,2025-04-23 14:00:00,18.1,49,10.1,Güneşli
+Ankara,2025-04-23 15:00:00,18.4,47,9.0,Güneşli
+Ankara,2025-04-23 16:00:00,18.3,47,9.0,Bölgesel düzensiz gök gürültülü yağmurlu
+Ankara,2025-04-23 17:00:00,17.5,49,10.8,Bölgesel düzensiz gök gürültülü yağmurlu
+Ankara,2025-04-23 18:00:00,15.8,56,11.5,Güneşli
+Ankara,2025-04-23 19:00:00,12.9,62,5.4,Güneşli
+Ankara,2025-04-23 20:00:00,12.6,61,7.2,Açık
+Ankara,2025-04-23 21:00:00,12.4,61,6.8,Açık
+Ankara,2025-04-23 22:00:00,11.9,64,5.0,Açık
+Ankara,2025-04-23 23:00:00,11.7,65,4.0,Açık
+Ankara,2025-04-24 00:00:00,11.2,67,4.3,Açık
+Ankara,2025-04-24 01:00:00,10.4,69,4.0,Açık
+Ankara,2025-04-24 02:00:00,10.2,72,2.9,Açık
+Ankara,2025-04-24 03:00:00,10.1,74,3.2,Açık
+Ankara,2025-04-24 04:00:00,9.8,76,3.2,Açık
+Ankara,2025-04-24 05:00:00,9.5,77,3.6,Açık
+Ankara,2025-04-24 06:00:00,12.0,73,4.7,Güneşli
+Ankara,2025-04-24 07:00:00,14.1,64,4.3,Güneşli
+Ankara,2025-04-24 08:00:00,15.5,59,5.8,Güneşli
+Ankara,2025-04-24 09:00:00,17.0,55,6.5,Güneşli
+Ankara,2025-04-24 10:00:00,18.3,50,7.2,Bölgesel gök gürültülü düzensiz hafif yağmur
+Ankara,2025-04-24 11:00:00,19.5,46,10.8,Bölgesel gök gürültülü düzensiz hafif yağmur
+Ankara,2025-04-24 12:00:00,20.5,42,13.3,Bölgesel düzensiz gök gürültülü yağmurlu
+Ankara,2025-04-24 13:00:00,20.7,40,12.2,Bölgesel düzensiz gök gürültülü yağmurlu
+Ankara,2025-04-24 14:00:00,19.5,46,9.7,Bölgesel düzensiz gök gürültülü yağmurlu
+Ankara,2025-04-24 15:00:00,18.3,53,5.8,Bölgesel gök gürültülü düzensiz hafif yağmur
+Ankara,2025-04-24 16:00:00,13.6,81,6.5,Ara ara orta kuvvetli yağmurlu
+Ankara,2025-04-24 17:00:00,14.4,73,3.6,Hafif sağnak yağışlı
+Ankara,2025-04-24 18:00:00,13.7,77,8.6,Bölgesel düzensiz gök gürültülü yağmurlu
+Ankara,2025-04-24 19:00:00,12.7,82,1.8,Hafif sağnak yağışlı
+Ankara,2025-04-24 20:00:00,12.5,83,5.0,Hafif sağnak yağışlı
+Ankara,2025-04-24 21:00:00,12.4,83,9.4,Hafif sağnak yağışlı
+Ankara,2025-04-24 22:00:00,11.8,83,13.3,Bölgesel düzensiz gök gürültülü yağmurlu
+Ankara,2025-04-24 23:00:00,10.7,86,10.1,Hafif sağnak yağışlı
+Ankara,2025-04-25 00:00:00,10.3,83,16.2,Hafif sağnak yağışlı
+Ankara,2025-04-25 01:00:00,10.0,81,14.8,Bölgesel düzensiz yağmur yağışlı
+Ankara,2025-04-25 02:00:00,10.0,85,17.6,Hafif çisenti
+Ankara,2025-04-25 03:00:00,9.6,86,19.1,Hafif çisenti
+Ankara,2025-04-25 04:00:00,9.7,87,21.6,Hafif çisenti
+Ankara,2025-04-25 05:00:00,9.3,89,20.5,Hafif sağnak yağışlı
+Ankara,2025-04-25 06:00:00,9.0,91,22.3,Hafif yağmurlu
+Ankara,2025-04-25 07:00:00,8.8,90,29.2,Hafif sağnak yağışlı
+Ankara,2025-04-25 08:00:00,8.8,88,27.0,Hafif yağmurlu
+Ankara,2025-04-25 09:00:00,8.5,89,27.0,Hafif çisenti
+Ankara,2025-04-25 10:00:00,9.0,85,24.5,Hafif sağnak yağışlı
+Ankara,2025-04-25 11:00:00,9.9,80,23.0,Bölgesel düzensiz yağmur yağışlı
+Ankara,2025-04-25 12:00:00,10.7,76,22.7,Bölgesel düzensiz yağmur yağışlı
+Ankara,2025-04-25 13:00:00,11.0,74,19.1,Bölgesel düzensiz yağmur yağışlı
+Ankara,2025-04-25 14:00:00,12.8,65,20.9,Bölgesel düzensiz yağmur yağışlı
+Ankara,2025-04-25 15:00:00,14.1,59,24.8,Bölgesel düzensiz yağmur yağışlı
+Ankara,2025-04-25 16:00:00,14.0,59,24.5,Parçalı Bulutlu
+Ankara,2025-04-25 17:00:00,13.3,64,18.4,Parçalı Bulutlu
+Ankara,2025-04-25 18:00:00,11.0,74,13.7,Güneşli
+Ankara,2025-04-25 19:00:00,8.9,81,7.6,Güneşli
+Ankara,2025-04-25 20:00:00,8.3,83,5.8,Açık
+Ankara,2025-04-25 21:00:00,7.9,83,5.4,Açık
+Ankara,2025-04-25 22:00:00,7.7,82,6.1,Açık
+Ankara,2025-04-25 23:00:00,7.1,83,5.4,Açık
+Izmir,2025-04-21 19:00:00,18.7,51,5.0,Güneşli
+Izmir,2025-04-21 20:00:00,17.4,53,5.0,Açık
+Izmir,2025-04-21 21:00:00,16.8,55,5.4,Açık
+Izmir,2025-04-21 22:00:00,15.9,58,5.0,Parçalı Bulutlu
+Izmir,2025-04-21 23:00:00,15.3,61,5.0,Parçalı Bulutlu
+Izmir,2025-04-22 00:00:00,14.7,64,3.2,Açık
+Izmir,2025-04-22 01:00:00,13.9,66,2.9,Açık
+Izmir,2025-04-22 02:00:00,13.3,67,2.9,Açık
+Izmir,2025-04-22 03:00:00,12.8,69,2.5,Açık
+Izmir,2025-04-22 04:00:00,12.4,69,2.2,Açık
+Izmir,2025-04-22 05:00:00,12.2,70,3.2,Açık
+Izmir,2025-04-22 06:00:00,13.1,69,3.6,Açık
+Izmir,2025-04-22 07:00:00,16.3,61,3.2,Güneşli
+Izmir,2025-04-22 08:00:00,19.3,53,2.9,Güneşli
+Izmir,2025-04-22 09:00:00,21.2,47,1.4,Güneşli
+Izmir,2025-04-22 10:00:00,22.8,42,7.6,Güneşli
+Izmir,2025-04-22 11:00:00,23.6,39,7.6,Güneşli
+Izmir,2025-04-22 12:00:00,24.6,35,7.2,Parçalı Bulutlu
+Izmir,2025-04-22 13:00:00,25.1,34,10.8,Güneşli
+Izmir,2025-04-22 14:00:00,24.8,35,10.1,Güneşli
+Izmir,2025-04-22 15:00:00,23.8,39,14.0,Parçalı Bulutlu
+Izmir,2025-04-22 16:00:00,22.4,44,11.9,Güneşli
+Izmir,2025-04-22 17:00:00,21.6,48,0.7,Parçalı Bulutlu
+Izmir,2025-04-22 18:00:00,20.5,55,8.6,Güneşli
+Izmir,2025-04-22 19:00:00,19.0,58,2.9,Parçalı Bulutlu
+Izmir,2025-04-22 20:00:00,18.3,58,3.2,Parçalı Bulutlu
+Izmir,2025-04-22 21:00:00,17.6,60,5.0,Bölgesel düzensiz yağmur yağışlı
+Izmir,2025-04-22 22:00:00,17.4,64,5.4,Bölgesel düzensiz yağmur yağışlı
+Izmir,2025-04-22 23:00:00,15.9,71,5.8,Bölgesel düzensiz yağmur yağışlı
+Izmir,2025-04-23 00:00:00,15.8,72,5.8,Bölgesel düzensiz yağmur yağışlı
+Izmir,2025-04-23 01:00:00,15.8,71,4.7,Parçalı Bulutlu
+Izmir,2025-04-23 02:00:00,16.2,68,6.5,Parçalı Bulutlu
+Izmir,2025-04-23 03:00:00,15.8,67,5.0,Parçalı Bulutlu
+Izmir,2025-04-23 04:00:00,15.7,65,5.0,Parçalı Bulutlu
+Izmir,2025-04-23 05:00:00,14.9,67,1.4,Açık
+Izmir,2025-04-23 06:00:00,14.9,69,3.6,Açık
+Izmir,2025-04-23 07:00:00,17.3,63,4.3,Güneşli
+Izmir,2025-04-23 08:00:00,19.3,55,6.1,Güneşli
+Izmir,2025-04-23 09:00:00,21.2,49,7.6,Güneşli
+Izmir,2025-04-23 10:00:00,22.8,44,9.0,Güneşli
+Izmir,2025-04-23 11:00:00,24.1,41,10.4,Güneşli
+Izmir,2025-04-23 12:00:00,25.0,38,13.0,Güneşli
+Izmir,2025-04-23 13:00:00,25.4,38,14.8,Güneşli
+Izmir,2025-04-23 14:00:00,25.4,37,14.8,Güneşli
+Izmir,2025-04-23 15:00:00,25.2,38,16.2,Güneşli
+Izmir,2025-04-23 16:00:00,24.4,40,15.5,Güneşli
+Izmir,2025-04-23 17:00:00,23.2,43,13.0,Güneşli
+Izmir,2025-04-23 18:00:00,21.7,50,10.1,Güneşli
+Izmir,2025-04-23 19:00:00,19.2,57,7.9,Güneşli
+Izmir,2025-04-23 20:00:00,18.2,60,5.4,Açık
+Izmir,2025-04-23 21:00:00,17.3,62,4.3,Açık
+Izmir,2025-04-23 22:00:00,16.6,64,3.6,Açık
+Izmir,2025-04-23 23:00:00,16.1,66,2.5,Açık
+Izmir,2025-04-24 00:00:00,15.5,68,2.2,Açık
+Izmir,2025-04-24 01:00:00,15.1,70,2.2,Açık
+Izmir,2025-04-24 02:00:00,14.6,72,1.4,Açık
+Izmir,2025-04-24 03:00:00,14.1,73,0.4,Açık
+Izmir,2025-04-24 04:00:00,13.7,74,1.4,Bölgesel düzensiz yağmur yağışlı
+Izmir,2025-04-24 05:00:00,13.4,76,2.2,Bölgesel düzensiz yağmur yağışlı
+Izmir,2025-04-24 06:00:00,14.2,75,2.2,Bölgesel düzensiz yağmur yağışlı
+Izmir,2025-04-24 07:00:00,16.5,68,2.2,Bölgesel düzensiz yağmur yağışlı
+Izmir,2025-04-24 08:00:00,18.1,62,2.9,Bölgesel düzensiz yağmur yağışlı
+Izmir,2025-04-24 09:00:00,19.7,56,3.2,Bölgesel düzensiz yağmur yağışlı
+Izmir,2025-04-24 10:00:00,21.1,50,4.7,Güneşli
+Izmir,2025-04-24 11:00:00,22.1,46,7.2,Güneşli
+Izmir,2025-04-24 12:00:00,22.7,44,9.7,Bölgesel gök gürültülü düzensiz hafif yağmur
+Izmir,2025-04-24 13:00:00,22.9,43,13.0,Bölgesel gök gürültülü düzensiz hafif yağmur
+Izmir,2025-04-24 14:00:00,22.6,44,15.1,Bölgesel gök gürültülü düzensiz hafif yağmur
+Izmir,2025-04-24 15:00:00,21.7,47,15.1,Bölgesel düzensiz gök gürültülü yağmurlu
+Izmir,2025-04-24 16:00:00,20.7,51,11.5,Bölgesel gök gürültülü düzensiz hafif yağmur
+Izmir,2025-04-24 17:00:00,20.0,53,9.7,Bölgesel düzensiz yağmur yağışlı
+Izmir,2025-04-24 18:00:00,19.1,59,4.7,Bölgesel düzensiz yağmur yağışlı
+Izmir,2025-04-24 19:00:00,17.3,68,3.6,Bölgesel düzensiz yağmur yağışlı
+Izmir,2025-04-24 20:00:00,16.3,75,0.7,Bölgesel düzensiz yağmur yağışlı
+Izmir,2025-04-24 21:00:00,15.7,78,2.2,Parçalı Bulutlu
+Izmir,2025-04-24 22:00:00,15.1,81,2.2,Bölgesel düzensiz yağmur yağışlı
+Izmir,2025-04-24 23:00:00,14.5,83,2.9,Hafif sağnak yağışlı
+Izmir,2025-04-25 00:00:00,14.0,85,3.2,Bölgesel düzensiz yağmur yağışlı
+Izmir,2025-04-25 01:00:00,13.6,87,3.2,Parçalı Bulutlu
+Izmir,2025-04-25 02:00:00,13.2,89,4.3,Parçalı Bulutlu
+Izmir,2025-04-25 03:00:00,12.9,90,4.3,Parçalı Bulutlu
+Izmir,2025-04-25 04:00:00,12.7,91,4.0,Parçalı Bulutlu
+Izmir,2025-04-25 05:00:00,12.3,91,4.3,Açık
+Izmir,2025-04-25 06:00:00,13.0,90,4.7,Açık
+Izmir,2025-04-25 07:00:00,14.9,82,5.4,Güneşli
+Izmir,2025-04-25 08:00:00,16.6,72,5.0,Güneşli
+Izmir,2025-04-25 09:00:00,18.2,63,4.7,Güneşli
+Izmir,2025-04-25 10:00:00,19.7,56,4.0,Bölgesel düzensiz yağmur yağışlı
+Izmir,2025-04-25 11:00:00,20.9,51,4.7,Bölgesel düzensiz yağmur yağışlı
+Izmir,2025-04-25 12:00:00,21.9,46,7.2,Bölgesel düzensiz yağmur yağışlı
+Izmir,2025-04-25 13:00:00,22.5,43,10.1,Bölgesel düzensiz yağmur yağışlı
+Izmir,2025-04-25 14:00:00,22.6,42,13.7,Güneşli
+Izmir,2025-04-25 15:00:00,21.9,45,15.5,Bölgesel düzensiz yağmur yağışlı
+Izmir,2025-04-25 16:00:00,20.8,48,13.0,Bölgesel düzensiz yağmur yağışlı
+Izmir,2025-04-25 17:00:00,20.2,48,10.4,Güneşli
+Izmir,2025-04-25 18:00:00,19.2,52,9.4,Güneşli
+Izmir,2025-04-25 19:00:00,16.2,60,8.3,Güneşli
+Izmir,2025-04-25 20:00:00,14.7,64,6.8,Açık
+Izmir,2025-04-25 21:00:00,13.9,66,5.0,Açık
+Izmir,2025-04-25 22:00:00,13.4,67,4.3,Açık
+Izmir,2025-04-25 23:00:00,13.0,68,3.6,Açık

@@ -1,0 +1,179 @@
+/* Genel sayfa görünümü */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #e0eafc, #cfdef3);
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* App ana konteyneri */
+  .App {
+    text-align: center;
+  }
+  
+  /* Şehir seçici */
+  .city-selector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .city-label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 6px;
+    font-size: 18px;
+  }
+  
+  .city-dropdown {
+    padding: 10px;
+    border: 2px solid #0077ff;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+  }
+  
+  /* WeatherCard stili */
+  .weather-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 20px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    margin-top: 20px;
+  }
+  
+  .weather-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .weather-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 12px;
+  }
+  
+  .weather-info {
+    font-size: 1rem;
+    margin: 6px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  /* Grafik kartı */
+  .chart-container {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 800px;
+  }
+  .homepage-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .top-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 30px;
+  }
+  
+  .chart-title {
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .chart-container {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 800px;
+    height: 300px;
+  }
+  .day-buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .day-button {
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 2px solid #0077ff;
+    background-color: #fff;
+    color: #0077ff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .day-button:hover {
+    background-color: #e6f0ff;
+  }
+  
+  .day-button.selected {
+    background-color: #0077ff;
+    color: white;
+  }
+  .dashboard-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px;
+  }
+  
+  .city-panel {
+    background: #f8faff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    max-width: 430px;
+    flex: 1;
+  }
+  
+  .bar-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin: 6px 0;
+    font-size: 14px;
+  }
+  
+  .bar {
+    background-color: #e0e0e0;
+    height: 12px;
+    flex-grow: 1;
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 0 8px;
+  }
+  
+  .bar div {
+    background-color: #4a90e2;
+    height: 100%;
+  }
+  
