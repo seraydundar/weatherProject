@@ -45,6 +45,7 @@ body {
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
     margin-top: 20px;
+    
   }
   
   .weather-card:hover {
@@ -64,6 +65,7 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
+    
   }
   
   /* Grafik kartı */

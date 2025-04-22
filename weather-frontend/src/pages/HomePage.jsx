@@ -1,22 +1,27 @@
 // src/pages/HomePage.jsx
 import React, { useState, useEffect } from 'react';
 import CityWeatherPanel from '../components/CityWeatherPanel';
-import ComparisonChart from '../components/ComparisonChart';
+import GroupedComparisonChart from '../components/GroupedComparisonChart';
+import HourlyComparison from '../components/HourlyComparison';
 import { fetchWeatherData } from '../services/api';
 
 export default function HomePage() {
   const today = new Date().toISOString().slice(0,10);
 
   // Detay modu için
-  const [detailCity, setDetailCity] = useState(null);
-  const [detailDate, setDetailDate] = useState(today);
-  const [detailDates, setDetailDates] = useState([]);
+  const [detailCity,   setDetailCity]   = useState(null);
+  const [detailDate,   setDetailDate]   = useState(today);
+  const [detailDates,  setDetailDates]  = useState([]);
 
   // Ana sayfa tarih seçimi
   const [selectedDate, setSelectedDate] = useState(today);
   const [availableDates, setAvailableDates] = useState([]);
 
-  // İstanbul’dan tarihler al ve dropdown’a doldur
+  // Hangi chart’ı gösteriyoruz?
+  // 'temperature' | 'humidity' | 'wind_speed'
+  const [chartMetric, setChartMetric] = useState('temperature');
+
+  // Başlangıçta İstanbul’dan tarihleri al
   useEffect(() => {
     fetchWeatherData("Istanbul").then(data => {
       const dates = Array.from(new Set(data.map(i => i.date_time.slice(0,10)))).sort();
@@ -28,26 +33,40 @@ export default function HomePage() {
   }, []);
 
   const cities = ["Istanbul","Ankara","Izmir"];
+  const METRIC_LABELS = {
+    temperature: "Sıcaklık",
+    humidity:    "Nem",
+    wind_speed:  "Rüzgar"
+  };
 
   return (
     <div className="homepage-container">
       {detailCity === null ? (
         <>
-          {/* Genel üç kart */}
+          {/* Üç şehir kartı */}
           <div className="dashboard-grid">
-            {cities.map(c => (
-              <CityWeatherPanel
-                key={c}
-                city={c}
-                selectedDate={selectedDate}
-                showChart={false}
-                showDateButtons={false}
-                onCardClick={city => {
-                  setDetailCity(city);
-                  setDetailDate(selectedDate);
-                  setDetailDates([]);
+            {cities.map(cityName => (
+              <div
+                key={cityName}
+                style={{
+                  flex: '0 0 300px',
+                  width: '300px',
+                  display: 'flex',
+                  alignItems: 'stretch'
                 }}
-              />
+              >
+                <CityWeatherPanel
+                  city={cityName}
+                  selectedDate={selectedDate}
+                  showChart={false}
+                  showDateButtons={false}
+                  onCardClick={c => {
+                    setDetailCity(c);
+                    setDetailDate(selectedDate);
+                    setDetailDates([]);
+                  }}
+                />
+              </div>
             ))}
           </div>
 
@@ -83,25 +102,43 @@ export default function HomePage() {
             })}
           </div>
 
-          {/* En yüksek ve en düşük kutuları */}
+          {/* Chart tipi butonları */}
           <div style={{
-            display:'flex',
-            flexWrap:'wrap',
-            gap:'20px',
-            justifyContent:'flex-start',
-            alignItems:'flex-start'
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '12px',
+            marginBottom: '20px'
           }}>
-            <ComparisonChart
-              selectedDate={selectedDate}
-              mode="max"
-              title={`Günlük En Yüksek Sıcaklık – ${selectedDate}`}
-            />
-            <ComparisonChart
-              selectedDate={selectedDate}
-              mode="min"
-              title={`Günlük En Düşük Sıcaklık – ${selectedDate}`}
-            />
+            {Object.entries(METRIC_LABELS).map(([key, label]) => {
+              const sel = chartMetric === key;
+              return (
+                <button
+                  key={key}
+                  onClick={() => setChartMetric(key)}
+                  style={{
+                    padding:'8px 16px',
+                    borderRadius:8,
+                    border: sel ? '2px solid #0077ff' : '2px solid #ccc',
+                    background: sel ? '#0077ff' : '#fff',
+                    color: sel ? '#fff' : '#333',
+                    cursor:'pointer'
+                  }}
+                >
+                  {label}
+                </button>
+              );
+            })}
           </div>
+
+          {/* Seçilen grafiği göster */}
+          {chartMetric === 'temperature' ? (
+            <GroupedComparisonChart selectedDate={selectedDate} />
+          ) : (
+            <HourlyComparison 
+              selectedDate={selectedDate} 
+              metric={chartMetric} 
+            />
+          )}
         </>
       ) : (
         <div style={{ textAlign:'center' }}>
@@ -124,7 +161,6 @@ export default function HomePage() {
           >
             ← Geri
           </button>
-
           {/* Detay sayfası */}
           <CityWeatherPanel
             city={detailCity}
