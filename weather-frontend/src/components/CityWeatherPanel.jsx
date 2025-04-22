@@ -22,23 +22,30 @@ export default function CityWeatherPanel({
 }) {
   const [weatherData, setWeatherData] = useState([]);
   const [selectedMetric, setSelectedMetric] = useState('temperature');
+  const [hourlyData, setHourlyData] = useState(null);
 
   useEffect(() => {
     fetchWeatherData(city).then(data => {
       setWeatherData(data);
       if (showDateButtons) {
-        const dates = [...new Set(data.map(i => i.date_time.slice(0, 10)))].sort();
+        const dates = [...new Set(data.map(i => i.date_time.slice(0,10)))].sort();
         setAvailableDates(prev => [...new Set([...prev, ...dates])].sort());
         if (!selectedDate && dates.length) setSelectedDate(dates[0]);
       }
     });
   }, [city, showDateButtons]);
 
+  // Yeni şehir ya da tarih seçilince önceki saate ait seçim sıfırlansın:
+  useEffect(() => {
+    setHourlyData(null);
+  }, [city, selectedDate]);
+
+  // O günkü tüm satırlar
   const filtered = weatherData.filter(i =>
     i.date_time.startsWith(selectedDate)
   );
 
-  // En yakın veri noktası
+  // Varsayılan olarak o anki saatin en yakın verisi
   const nowData = filtered.length > 0
     ? filtered.reduce((closest, i) => {
         const h = new Date().getHours();
@@ -47,6 +54,9 @@ export default function CityWeatherPanel({
         return d1 < d2 ? i : closest;
       }, filtered[0])
     : null;
+
+  // Kartta gösterilecek veri: tıklanan saat || varsayılan
+  const displayData = hourlyData || nowData;
 
   return (
     <div
@@ -68,29 +78,29 @@ export default function CityWeatherPanel({
         flexDirection: 'column',
         alignItems: 'center'
       }}>
-        {/* Weather Card */}
-        {nowData && (
+        {/* 👇 Burada WeatherCard hep duruyor; displayData değiştikçe içeriği güncellenir */}
+        {displayData && (
           <WeatherCard
-            data={nowData}
+            data={displayData}
             maxTemp={Math.max(...filtered.map(i => i.temperature))}
             minTemp={Math.min(...filtered.map(i => i.temperature))}
             avgTemp={(filtered.reduce((s, i) => s + i.temperature, 0) / filtered.length).toFixed(1)}
-            nowTemp={nowData.temperature}
+            nowTemp={displayData.temperature}
           />
         )}
 
-        {/* Date Buttons */}
+        {/* Tarih seçici butonlar */}
         {showDateButtons && (
           <div className="day-buttons-container">
             {availableDates.map(date => {
-              const day = new Date(date).toLocaleDateString('tr-TR', { weekday: 'long' });
-              const label = `${date} – ${day.charAt(0).toUpperCase() + day.slice(1)}`;
+              const day = new Date(date).toLocaleDateString('tr-TR',{weekday:'long'});
+              const label = `${date} – ${day.charAt(0).toUpperCase()+day.slice(1)}`;
               return (
                 <button
                   key={date}
                   type="button"
-                  className={`day-button${date === selectedDate ? ' selected' : ''}`}
-                  onClick={() => setSelectedDate(date)}
+                  className={`day-button${date===selectedDate?' selected':''}`}
+                  onClick={()=>setSelectedDate(date)}
                 >
                   {label}
                 </button>
@@ -99,37 +109,37 @@ export default function CityWeatherPanel({
           </div>
         )}
 
-        {/* Chart & Metric Selector */}
+        {/* Grafik + metrik seçici */}
         {showChart && (
-          <div style={{ width: '100%', marginTop: '20px' }}>
+          <div style={{width:'100%', marginTop:20}}>
             <h3 className="chart-title">
-              {selectedDate} – Saatlik {METRICS.find(m => m.key === selectedMetric).label} Trendi
+              {selectedDate} – Saatlik {METRICS.find(m=>m.key===selectedMetric).label} Trendi
             </h3>
             <DailyChart
               data={filtered}
               metric={selectedMetric}
+              onPointClick={setHourlyData}   // 👈 burayı mutlaka ekle
             />
-            {/* Metric butonları grafiğin altında, sağa yaslı */}
             <div style={{
-              display: 'flex',
-              justifyContent: 'flex-end',
-              gap: '10px',
-              marginTop: '12px',
-              flexWrap: 'wrap'
+              display:'flex',
+              justifyContent:'flex-end',
+              gap:10,
+              marginTop:12,
+              flexWrap:'wrap'
             }}>
-              {METRICS.map(m => (
+              {METRICS.map(m=>(
                 <button
                   key={m.key}
                   type="button"
-                  onClick={() => setSelectedMetric(m.key)}
+                  onClick={()=>setSelectedMetric(m.key)}
                   style={{
-                    padding: '8px 12px',
-                    borderRadius: '6px',
-                    border: m.key === selectedMetric ? '2px solid #0077ff' : '2px solid #ccc',
-                    background: m.key === selectedMetric ? '#0077ff' : '#fff',
-                    color: m.key === selectedMetric ? '#fff' : '#333',
-                    cursor: 'pointer',
-                    whiteSpace: 'nowrap'
+                    padding:'8px 12px',
+                    borderRadius:6,
+                    border: m.key===selectedMetric?'2px solid #0077ff':'2px solid #ccc',
+                    background: m.key===selectedMetric?'#0077ff':'#fff',
+                    color: m.key===selectedMetric?'#fff':'#333',
+                    cursor:'pointer',
+                    whiteSpace:'nowrap'
                   }}
                 >
                   {m.label}

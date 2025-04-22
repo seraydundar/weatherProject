@@ -1,5 +1,5 @@
 // src/components/WeatherCard.jsx
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   FaTemperatureHigh,
   FaTemperatureLow,
@@ -9,71 +9,96 @@ import {
   FaThermometerHalf,
   FaRegClock,
   FaSun,
-  FaCloud
+  FaCloud,
+  FaCloudRain
 } from 'react-icons/fa';
 import './WeatherStyles.css';
 
 export default function WeatherCard({ data, maxTemp, minTemp, avgTemp, nowTemp }) {
+  const [currentTime, setCurrentTime] = useState('');
+
+  // Yüklenince ve her dakika güncelle (saniyesiz)
+  useEffect(() => {
+    const update = () => {
+      const now = new Date();
+      setCurrentTime(
+        now.toLocaleTimeString('tr-TR', {
+          hour: '2-digit',
+          minute: '2-digit'
+        })
+      );
+    };
+    update();
+    const timer = setInterval(update, 60000);
+    return () => clearInterval(timer);
+  }, []);
+
   if (!data) return null;
 
-  const normalize = (val, max) => `${Math.min((val / max) * 100, 100)}%`;
+  // Ortalama barı -10…60°C arası ölçekle
+  const normalizeAvg = val => {
+    const pct = ((val + 10) / 70) * 100;
+    return `${Math.min(Math.max(pct, 0), 100)}%`;
+  };
+
+  // Duruma göre ikon seç
+  let conditionIcon;
+  const cond = data.weather_condition;
+  if (cond === 'Açık') {
+    conditionIcon = <FaSun style={{ margin: '0 6px' }} />;
+  } else if (cond === 'Bulutlu') {
+    conditionIcon = <FaCloud style={{ margin: '0 6px' }} />;
+  } else if (cond.includes('Yağmur') || cond.includes('çisenti')) {
+    conditionIcon = <FaCloudRain style={{ margin: '0 6px' }} />;
+  } else {
+    conditionIcon = <FaCloudSun style={{ margin: '0 6px' }} />;
+  }
 
   return (
     <div className="weather-card">
+      {/* Şehir başlığı */}
       <h2 className="weather-title">{data.city}</h2>
-      <p className="weather-info">
+
+      {/* Tarih başlık gibi ortada */}
+      <p className="weather-date">
         <FaCloudSun /> <strong>Tarih:</strong> {data.date_time.slice(0, 10)}
       </p>
 
-      <div className="bar-row">
-        <span><FaRegClock /> Anlık</span>
-        <div className="bar"><div style={{ width: normalize(nowTemp, 50) }} /></div>
-        <span>{nowTemp}°C</span>
-      </div>
+      {/* Saat da başlık gibi ortada */}
+      <p className="weather-date">
+        <FaRegClock /> <strong>Saat:</strong> {currentTime}
+      </p>
 
-      <div className="bar-row">
-        <span><FaTemperatureHigh /> En Yüksek</span>
-        <div className="bar"><div style={{ width: normalize(maxTemp, 50) }} /></div>
-        <span>{maxTemp}°C</span>
-      </div>
+      {/* Anlık sıcaklık: farklı ikon */}
+      <p className="weather-info">
+        <FaThermometerHalf /> Anlık: {nowTemp}°C
+      </p>
 
-      <div className="bar-row">
-        <span><FaTemperatureLow /> En Düşük</span>
-        <div className="bar"><div style={{ width: normalize(minTemp, 50) }} /></div>
-        <span>{minTemp}°C</span>
-      </div>
+      <p className="weather-info">
+        <FaTemperatureHigh /> En Yüksek: {maxTemp}°C
+      </p>
+      <p className="weather-info">
+        <FaTemperatureLow /> En Düşük: {minTemp}°C
+      </p>
+      <p className="weather-info">
+        <FaTint /> Nem: {data.humidity}%
+      </p>
+      <p className="weather-info">
+        <FaWind /> Rüzgar: {data.wind_speed} km/h
+      </p>
 
-      <div className="bar-row">
+      {/* Ortalama bar — “Durum”un hemen üstünde */}
+      <div className="bar-row average-row">
         <span><FaThermometerHalf /> Ortalama</span>
-        <div className="bar"><div style={{ width: normalize(avgTemp, 50) }} /></div>
+        <div className="bar">
+          <div style={{ width: normalizeAvg(avgTemp) }} />
+        </div>
         <span>{avgTemp}°C</span>
       </div>
 
-      <div className="bar-row">
-        <span><FaTint /> Nem</span>
-        <div className="bar"><div style={{ width: normalize(data.humidity, 100) }} /></div>
-        <span>{data.humidity}%</span>
-      </div>
-
-      <div className="bar-row">
-        <span><FaWind /> Rüzgar</span>
-        <div className="bar"><div style={{ width: normalize(data.wind_speed, 100) }} /></div>
-        <span>{data.wind_speed} km/h</span>
-      </div>
-
+      {/* Durum satırı, ikonlu */}
       <p className="weather-info">
-        <strong>Durum:</strong>{' '}
-        {data.weather_condition === 'Açık' ? (
-          <>
-            <FaSun style={{ margin: '0 6px' }} />
-            {data.weather_condition}
-          </>
-        ) : (
-          <>
-            <FaCloud style={{ margin: '0 6px' }} />
-            {data.weather_condition}
-          </>
-        )}
+        <strong>Durum:</strong> {conditionIcon}{data.weather_condition}
       </p>
     </div>
   );
