@@ -1,6 +1,15 @@
-// src/components/CityWeatherPanel.jsx
 import React, { useEffect, useState } from 'react';
 import { fetchWeatherData } from '../services/api';
+import {
+  FaSun,
+  FaCloud,
+  FaCloudRain,
+  FaCloudShowersHeavy,
+  FaCloudSun,
+  FaCloudSunRain,
+  FaSnowflake,
+  FaSmog
+} from 'react-icons/fa';
 import WeatherCard from './WeatherCard';
 import DailyChart from './DailyChart';
 
@@ -13,9 +22,9 @@ const METRICS = [
 export default function CityWeatherPanel({
   city,
   selectedDate,
-  setSelectedDate,
-  availableDates,
-  setAvailableDates,
+  setSelectedDate = () => {},
+  availableDates = [],
+  setAvailableDates = () => {},
   showChart = true,
   showDateButtons = true,
   onCardClick
@@ -24,28 +33,33 @@ export default function CityWeatherPanel({
   const [selectedMetric, setSelectedMetric] = useState('temperature');
   const [hourlyData, setHourlyData] = useState(null);
 
+  // Şehir değişince verileri çek
   useEffect(() => {
     fetchWeatherData(city).then(data => {
       setWeatherData(data);
       if (showDateButtons) {
-        const dates = [...new Set(data.map(i => i.date_time.slice(0,10)))].sort();
-        setAvailableDates(prev => [...new Set([...prev, ...dates])].sort());
-        if (!selectedDate && dates.length) setSelectedDate(dates[0]);
+        const dates = Array.from(
+          new Set(data.map(i => i.date_time.slice(0,10)))
+        ).sort();
+        setAvailableDates(dates);
+        if (!selectedDate && dates.length) {
+          setSelectedDate(dates[0]);
+        }
       }
     });
-  }, [city, showDateButtons]);
+  }, [city, showDateButtons, setAvailableDates, setSelectedDate, selectedDate]);
 
-  // Yeni şehir ya da tarih seçilince önceki saate ait seçim sıfırlansın:
+  // Tarih değişince önceki saati sıfırla
   useEffect(() => {
     setHourlyData(null);
   }, [city, selectedDate]);
 
-  // O günkü tüm satırlar
+  // O günün verileri
   const filtered = weatherData.filter(i =>
     i.date_time.startsWith(selectedDate)
   );
 
-  // Varsayılan olarak o anki saatin en yakın verisi
+  // Şu anki saate en yakın veri
   const nowData = filtered.length > 0
     ? filtered.reduce((closest, i) => {
         const h = new Date().getHours();
@@ -55,77 +69,84 @@ export default function CityWeatherPanel({
       }, filtered[0])
     : null;
 
-  // Kartta gösterilecek veri: tıklanan saat || varsayılan
   const displayData = hourlyData || nowData;
+
+  // Küçük ikon seçici (WeatherCard’dakiyle aynı mantık)
+  const getIcon = condRaw => {
+    const cond = (condRaw || '').toLowerCase();
+    if (cond.includes('kar'))                return <FaSnowflake />;
+    if (cond.includes('sağnak') || cond.includes('showers')) return <FaCloudShowersHeavy />;
+    if (cond.includes('çisenti') || cond.includes('hafif yağmur')) return <FaCloudRain />;
+    if (cond.includes('parçalı'))            return <FaCloudSun />;
+    if (cond.includes('sis') || cond.includes('duman')) return <FaSmog />;
+    if (cond.includes('bulutlu'))            return <FaCloud />;
+    if (cond.includes('güneş') || cond.includes('açık')) return <FaSun />;
+    return <FaCloudSunRain />;
+  };
 
   return (
     <div
-      className="city-panel"
+      className="city-panel detail-mode"
       onClick={onCardClick ? () => onCardClick(city) : undefined}
-      style={{
-        background: 'transparent',
-        boxShadow: 'none',
-        padding: 0,
-        display: 'flex',
-        justifyContent: 'center',
-        width: '100%'
-      }}
     >
-      <div style={{
-        width: '100%',
-        maxWidth: '600px',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center'
-      }}>
-        {/* 👇 Burada WeatherCard hep duruyor; displayData değiştikçe içeriği güncellenir */}
+      {/* ◀︎ Soldaki Gün Listesi */}
+      {showDateButtons && (
+        <aside className="sidebar-dates">
+          <h4>Günler</h4>
+          {availableDates.map(date => {
+            const dayName = new Date(date)
+              .toLocaleDateString('tr-TR', { weekday: 'long' });
+            const label   = `${dayName.charAt(0).toUpperCase()+dayName.slice(1)} (${date})`;
+            const daily   = weatherData.filter(i => i.date_time.startsWith(date));
+            const avg     = daily.length
+              ? (daily.reduce((s,i)=>s+i.temperature,0)/daily.length).toFixed(1)
+              : '-';
+            const isSel   = date === selectedDate;
+            const cond    = daily[0]?.weather_condition;
+
+            return (
+              <div
+                key={date}
+                className={`day-item${isSel ? ' selected' : ''}`}
+                onClick={() => setSelectedDate(date)}
+              >
+                <span className="icon">{getIcon(cond)}</span>
+                <span className="label">{label}</span>
+                <span className="temp">{avg}°C</span>
+              </div>
+            );
+          })}
+        </aside>
+      )}
+
+      {/* ▶︎ Sağdaki Ana İçerik */}
+      <main className="main-content">
         {displayData && (
           <WeatherCard
             data={displayData}
             maxTemp={Math.max(...filtered.map(i => i.temperature))}
             minTemp={Math.min(...filtered.map(i => i.temperature))}
-            avgTemp={(filtered.reduce((s, i) => s + i.temperature, 0) / filtered.length).toFixed(1)}
+            avgTemp={(
+              filtered.reduce((sum,i)=>sum+i.temperature,0)/filtered.length
+            ).toFixed(1)}
             nowTemp={displayData.temperature}
           />
         )}
 
-        {/* Tarih seçici butonlar */}
-        {showDateButtons && (
-          <div className="day-buttons-container">
-            {availableDates.map(date => {
-              const day = new Date(date).toLocaleDateString('tr-TR',{weekday:'long'});
-              const label = `${date} – ${day.charAt(0).toUpperCase()+day.slice(1)}`;
-              return (
-                <button
-                  key={date}
-                  type="button"
-                  className={`day-button${date===selectedDate?' selected':''}`}
-                  onClick={()=>setSelectedDate(date)}
-                >
-                  {label}
-                </button>
-              );
-            })}
-          </div>
-        )}
-
-        {/* Grafik + metrik seçici */}
         {showChart && (
-          <div style={{width:'100%', marginTop:20}}>
+          <section style={{ marginTop: 20 }}>
             <h3 className="chart-title">
               {selectedDate} – Saatlik {METRICS.find(m=>m.key===selectedMetric).label} Trendi
             </h3>
             <DailyChart
               data={filtered}
               metric={selectedMetric}
-              onPointClick={setHourlyData}   // 👈 burayı mutlaka ekle
+              onPointClick={setHourlyData}
             />
             <div style={{
               display:'flex',
               justifyContent:'flex-end',
-              gap:10,
-              marginTop:12,
-              flexWrap:'wrap'
+              gap:10, marginTop:12, flexWrap:'wrap'
             }}>
               {METRICS.map(m=>(
                 <button
@@ -146,9 +167,9 @@ export default function CityWeatherPanel({
                 </button>
               ))}
             </div>
-          </div>
+          </section>
         )}
-      </div>
+      </main>
     </div>
   );
 }

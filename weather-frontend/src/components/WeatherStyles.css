@@ -1,281 +1,387 @@
 /* Genel sayfa görünümü */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to right, #e0eafc, #cfdef3);
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* App ana konteyneri */
-  .App {
-    text-align: center;
-  }
-  
-  /* Şehir seçici */
-  .city-selector {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .city-label {
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 6px;
-    font-size: 18px;
-  }
-  
-  .city-dropdown {
-    padding: 10px;
-    border: 2px solid #0077ff;
-    border-radius: 8px;
-    font-size: 16px;
-    background-color: #f9f9f9;
-    box-shadow: 0 1px 5px rgba(0,0,0,0.1);
-  }
-  
-  /* WeatherCard stili */
-  .weather-card {
-    background-color: #ffffff;
-    border-radius: 16px;
-    padding: 20px;
-    width: 100%;
-    max-width: 420px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-    margin-top: 20px;
-    
-  }
-  
-  .weather-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .weather-title {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 12px;
-  }
-  
-  .weather-info {
-    font-size: 1rem;
-    margin: 6px 0;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    
-  }
-  
-  /* Grafik kartı */
-  .chart-container {
-    background: white;
-    border-radius: 16px;
-    padding: 20px;
-    margin-top: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    width: 100%;
-    max-width: 800px;
-  }
-  .homepage-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
-  
-  .top-section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
-    width: 100%;
-    max-width: 1200px;
-    margin-bottom: 30px;
-  }
-  
-  .chart-title {
-    margin-bottom: 10px;
-    font-size: 20px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .chart-container {
-    background: white;
-    border-radius: 16px;
-    padding: 20px;
-    margin-bottom: 40px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    width: 100%;
-    max-width: 800px;
-    height: 300px;
-  }
-  .day-buttons-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 30px;    
-    margin-bottom: 20px;
-  }
-  
-  .day-button {
-    padding: 10px 14px;
-    border-radius: 10px;
-    border: 2px solid #0077ff;
-    background-color: #fff;
-    color: #0077ff;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-  }
-  
-  .day-button:hover {
-    background-color: #e6f0ff;
-  }
-  
-  .day-button.selected {
-    background-color: #0077ff;
-    color: white;
-  }
-  .dashboard-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 60px;
-    padding: 20px;
-  }
-  
-  .city-panel {
-    background: #f8faff;
-    border-radius: 16px;
-    padding: 20px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    max-width: 430px;
-    flex: 1;
-  }
-  
-  .bar-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    margin: 6px 0;
-    font-size: 14px;
-  }
-  
-  .bar {
-    background-color: #e0e0e0;
-    height: 12px;
-    flex-grow: 1;
-    border-radius: 6px;
-    overflow: hidden;
-    margin: 0 8px;
-  }
-  
-  .bar div {
-    background-color: #4a90e2;
-    height: 100%;
-  }
-  /* ekle dosyanın sonuna */
-.city-panel.overview {
-  background: transparent;
-  box-shadow: none;
-  padding: 0;
-}
-.city-panel.overview .weather-card {
-  margin: 20px 0;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-}
-/* ——— OVERVIEW KART INVISIBLE WRAPPER ——— */
-.city-panel.overview {
-  background: transparent;
-  box-shadow: none;
-  padding: 0;
-}
-
-/* sadece gerçek kart */
-.city-panel.overview .weather-card {
-  margin: 20px 0;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-}
-
-/* WRAPPER H2 tamamen gizle (detail modda da) */
-.city-panel > h2 {
-  display: none;
-}
-
-/* DETAIL MODDA daha geniş kart */
-.city-panel {
-  max-width: 800px !important;
-  margin: 20px auto;
-}
-
-/* BUTONLAR TEK SATIRDA, taşmaya izin ver */
-.city-panel .day-buttons-container {
-  flex-wrap: nowrap !important;
-  overflow-x: auto;
-}
-
-/* GRAFİK alanını tam genişlik */
-.city-panel .chart-container {
-  max-width: none !important;
-  width: 100%;
-}
-
-/* ANASAYFA CONTAINER padding azalt */
-.homepage-container {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-/* KARTLAR ARASI GAP (overview + detail) */
-.dashboard-grid {
-  gap: 60px !important;
-}
-/* Şehir adı ve tarih ortalamak için */
-.weather-title {
-  text-align: center;
-  margin-bottom: 8px;
-}
-
-.weather-date {
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 6px;
-  font-size: 1rem;
-  margin: 0 0 16px;
-}
-
-/* Ortalama bar ile Durum arasında biraz boşluk */
-.average-row {
-  margin-top: 12px;
-  margin-bottom: 8px;
-}
-/* Tarih ve saati biraz alt alta ayırmak için */
-
-.weather-date {
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 6px;
-  font-size: 1rem;
-  margin: 0 0 12px;
-}
-
-
-.weather-info {
-  margin: 4px 0;
-}
-body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  /* Bulut PNG’sini tüm ekrana yayıyoruz */
   background: url('../assets/cloud1.png') center center / cover no-repeat;
   margin: 0;
   padding: 0;
 }
+
+/* App ana konteyneri */
+.App {
+  text-align: center;
+}
+
+/* Şehir seçici */
+.city-selector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.city-label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+  font-size: 18px;
+}
+
+.city-dropdown {
+  padding: 10px;
+  border: 2px solid #0077ff;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+}
+
+/* WeatherCard stili */
+.weather-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  margin-top: 20px;
+}
+
+.weather-card:hover {
+  transform: translateY(-5px);
+}
+
+.weather-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.weather-info {
+  font-size: 1rem;
+  margin: 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Grafik kapsayıcısı */
+.chart-container {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Anasayfa container */
+.homepage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* Dashboard grid */
+.dashboard-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px;
+  padding: 20px;
+}
+
+/* Metric butonları */
+.metric-selector {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.metric-button {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 2px solid #ccc;
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.metric-button:hover {
+  background: #f5f5f5;
+}
+
+.metric-button.selected {
+  background: #0077ff;
+  color: #fff;
+  border-color: #0077ff;
+}
+
+/* city-panel genel */
+.city-panel {
+  background: #f8faff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  max-width: 430px;
+  flex: 1;
+  margin: 0 auto 20px;
+}
+
+/* Detay modu: liste solda, kart+grafik ortada */
+.detail-page {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 20px 0;
+}
+
+/* Detay içeriği (kart + grafik) */
+.detail-content {
+  flex: 1;
+}
+
+/* Geri butonu */
+.btn-back {
+  margin-bottom: 16px;
+  padding: 8px 16px;
+  background: #0077ff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Metrik buton grubu (panel içi) */
+.metric-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.metric-buttons .btn-metric {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 2px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+}
+
+.metric-buttons .btn-metric.sel {
+  background: #0077ff;
+  color: #fff;
+  border-color: #0077ff;
+}
+
+/* Kart & Grafik arka planını beyaz yap (önceki transparan override’ı kaldırıyoruz) */
+.weather-card,
+.chart-container,
+.main-box {
+  background: #fff !important;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+/* Gün Seçici: Tek Buton + Açılır Liste */
+.date-picker {
+  position: relative;
+  display: inline-block;
+}
+
+.date-picker-btn {
+  padding: 8px 16px;
+  border: 2px solid #0077ff;
+  border-radius: 8px;
+  background: #fff;
+  color: #0077ff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.date-picker-btn:hover {
+  background: #e6f0ff;
+}
+
+.date-options {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  background: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  z-index: 100;
+  min-width: 200px;
+}
+
+.date-options button {
+  width: 100%;
+  padding: 8px 12px;
+  background: none;
+  border: none;
+  text-align: left;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.date-options button:hover {
+  background: #f5f5f5;
+}
+
+.date-options button.selected {
+  background: #0077ff;
+  color: #fff;
+}
+
+/* Ortalama bar çubuğu */
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.bar-row .bar {
+  flex: 1;
+  height: 8px;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 0 8px;
+}
+
+.bar-row .bar > div {
+  height: 100%;
+  background-color: #0077ff;
+}
+
+/* 15 günlük liste (sol blok) */
+.day-list {
+  background: rgba(255,255,255,0.8);
+  border-radius: 12px;
+  padding: 16px;
+  max-width: 240px;
+  margin: 20px;
+}
+
+.day-list h4 {
+  margin: 0 0 12px;
+  text-align: center;
+  color: #333;
+}
+
+.day-list .day-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 6px;
+  transition: background 0.2s;
+}
+
+.day-list .day-item:hover {
+  background: #f5f5f5;
+}
+
+.day-list .day-item.selected {
+  background: #0077ff;
+  color: #fff;
+}
+
+.day-list .icon {
+  margin-right: 8px;
+}
+
+.day-list .label {
+  flex: 1;
+  margin-right: 8px;
+}
+
+.day-list .temp {
+  width: 40px;
+  text-align: right;
+}
+/* — Detay modu genel ayar — */
+.detail-page {
+  display: flex;
+  align-items: flex-start;
+  padding: 20px 0;
+}
+
+/* 1) Gün seçimi sol sidebar olarak sabitlenir */
+.detail-page .day-list {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  margin: 0;
+  /* İstersen max-height + overflow-y: auto ekleyebilirsin */
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  background: rgba(255,255,255,0.9) !important;
+}
+
+/* 2) Outer city-panel beyaz kutusu kaldırılır */
+.detail-page .city-panel {
+  background: transparent !important;
+  box-shadow: none             !important;
+}
+
+/* 3) Kart + grafik merkezi içerik olarak ayarlanır */
+.detail-page .detail-content {
+  /* Sidebar genişliği + 40px boşluk bırakalım */
+  margin-left: calc(240px + 40px);
+  width: calc(100% - (240px + 40px));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 4) Grafik kapsayıcısını daha geniş yap */
+.detail-content .chart-container {
+  width: 100% !important;
+  max-width: none !important;
+  margin-top: 20px;
+}
+
+/* 5) Eğer halen CityWeatherPanel içindeki <main> transparan değilse: */
+.detail-content .main-content {
+  background: transparent !important;
+}
+/* Tarih ve Saat satırlarını ortala */
+.weather-date {
+  display: flex;
+  font-weight: 500;
+  justify-content: center;  /* yatay ortala */
+  align-items: center;      /* dikey ortala */
+  gap: 8px;                 /* ikon ile yazı arası boşluk */
+  font-size: 1rem;
+  margin: 8px 0;            /* üst-alt boşluk */
+}
+/* Şehir adını ve altındaki tarih/saat satırlarını ortala */
+.weather-card .weather-title,
+.weather-card .weather-date {
+  text-align: center;
+  width: 100%;
+}
+
+/* İstersen başlıkta biraz boşluk da bırakabilirsin */
+.weather-card .weather-title {
+  margin-bottom: 8px;
+}
+/* — Detay Modunda Grafiği Tam Genişlikte Yap — */
+.detail-content .chart-container {
+  width: 100% !important;
+  max-width: none !important;
+}
+
