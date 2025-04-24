@@ -43,18 +43,20 @@ export default function DaySidebar({ dates, selectedDate, onSelect, city }) {
     <div className="day-list">
       <h4>15 Günlük Hava</h4>
       {dates.map(date => {
+        // Sadece gün adı:
         const dayName = new Date(date)
-          .toLocaleDateString('tr-TR',{weekday:'long'})
-          .replace(/^./,s=>s.toUpperCase());
-        const { avg, condition } = dailyInfo[date] || { avg:'--', condition:'' };
+          .toLocaleDateString('tr-TR',{ weekday: 'long' })
+          .replace(/^./, s => s.toUpperCase());
+        const { avg, condition } = dailyInfo[date] || { avg: '--', condition: '' };
+
         return (
           <div
             key={date}
-            className={`day-item${date===selectedDate?' selected':''}`}
-            onClick={()=>onSelect(date)}
+            className={`day-item${date === selectedDate ? ' selected' : ''}`}
+            onClick={() => onSelect(date)}
           >
             <span className="icon">{getIcon(condition)}</span>
-            <span className="label">{`${dayName} (${date})`}</span>
+            <span className="label">{dayName}</span>
             <span className="temp">{avg}°C</span>
           </div>
         );
